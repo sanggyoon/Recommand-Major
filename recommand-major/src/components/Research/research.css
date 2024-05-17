@@ -1,0 +1,112 @@
+:root {
+    --bigestRadioSize: 4em;
+    --middleRadioSize: 3.3em;
+    --smallRadioSize: 2.6em;
+    --tinyRadioSize: 2em;
+}
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+.Research_BG {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../image/research_BG.png);   
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+    z-index: -1;
+}
+.research_empty_box {
+    height: 10vh;
+    width: 100%;
+}
+.research_contents {
+    width: 60%;
+    margin: 0 auto;
+}
+.FindOutYourMajor {
+    margin-left: 26px;
+    color: white;    
+    font-size: 1em;
+    font-weight: bold;
+}
+.question_box {
+    border-radius: 26px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 3em;
+}
+.question_box p {
+    margin: 20px auto;
+    text-align: center;
+    color: #747474;
+    font-size: 2em;
+    font-weight: bold;
+}
+.question_radio {
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.question_radio input[type="radio"] {
+    display: none;
+}
+.radio_btn{
+    border-radius: 50%;
+    display: inline-block;
+    border: 3px solid black;
+    margin: 0 10px;
+}
+.radioStyle-1, .radioStyle-2, .radioStyle-3 {
+    border-color: #92AFF8;
+}
+.radioStyle-4 {
+    height: var(--tinyRadioSize);
+    width: var(--tinyRadioSize);
+    border-color: #D5D5D5;
+}
+.radioStyle-5, .radioStyle-6, .radioStyle-7 {
+    border-color: #CAB1D6;
+}
+.radioStyle-1, .radioStyle-7 {
+    height: var(--bigestRadioSize);
+    width: var(--bigestRadioSize);
+}
+.radioStyle-2, .radioStyle-6 {
+    height: var(--middleRadioSize);
+    width: var(--middleRadioSize);
+}
+.radioStyle-3, .radioStyle-5 {
+    height: var(--smallRadioSize);
+    width: var(--smallRadioSize);
+}
+.question_radio input[type="radio"]:checked + .radioStyle-1, .question_radio input[type="radio"]:checked + .radioStyle-2, .question_radio input[type="radio"]:checked + .radioStyle-3 {
+    background-color: #92AFF8;
+}
+.question_radio input[type="radio"]:checked + .radioStyle-4 {
+    background-color: #D5D5D5;
+}
+.question_radio input[type="radio"]:checked + .radioStyle-5, .question_radio input[type="radio"]:checked + .radioStyle-6, .question_radio input[type="radio"]:checked + .radioStyle-7 {
+    background-color: #CAB1D6;
+}
+.summit_BT_box {
+    margin: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.summit_BT {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 0.6em 4em;
+    color: #97ACE1;
+    border-radius: 11px;
+    border: 2px solid #97ACE1;
+    background-color: rgba(0, 0, 0, 0);
+}
+.summit_BT:hover {
+    background-color: #97ACE1;
+    color: white;
+}
