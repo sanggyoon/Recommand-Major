@@ -77,7 +77,7 @@ function ResearchComponent() {
                             </label>
                         </div>
                     </div>
-                    <div className="summit_BT_box">
+                    <div className="summit_BT_box" action="/Result">
                         <button className="summit_BT">결과보기</button>
                     </div>
                 </form>

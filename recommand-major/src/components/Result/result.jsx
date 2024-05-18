@@ -28,7 +28,7 @@ function YourComponent() {
         <div className="recommand_relatedCompany">
           <p id="recommand_title">기업</p>
         </div>
-        <div className="again_BT">
+        <div className="again_BT" >
           <a href="">다시하기</a>
         </div>
       </div>

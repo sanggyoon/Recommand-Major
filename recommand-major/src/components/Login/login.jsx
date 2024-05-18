@@ -3,9 +3,11 @@ import './login.css'; // CSS import 방식 변경
 import loginArrow from '../image/login_arrow.png'; // 이미지 import 방식 변경
 import loginTail from '../image/login_tail.png';
 import loginLogo from '../image/login_logo.png';
+import Character from "./Character";
 
 function LoginPage() {
   return (
+  <div className='loginpage'>
     <div className="BG">
       <div className="Left_BG">
         <div className="arrow">
@@ -24,20 +26,20 @@ function LoginPage() {
             <span id="login_text2">본인의 학번을 입력하세요!</span>
           </div>
           <form action="/research">
-            {/* input과 button 태그 수정 */}
             <input type="text" id="userID" name="userID" placeholder="ex)A123456" />
             <div className="login_icon"></div>
             <button type="submit" id="loginBT" name="loginBT">확인</button>
           </form>
-          {/* src 속성 변경 */}
           <img src={loginTail} alt="" />
         </div>
-        <div className="charater_box"></div>
+        <div className="character_box">
+         <Character />
+        </div>
         <div className="logo_box">
-          {/* src 속성 변경 */}
           <img src={loginLogo} alt="" />
         </div>
       </div>
+    </div>
     </div>
   );
 }
