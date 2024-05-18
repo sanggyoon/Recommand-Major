@@ -32,10 +32,19 @@ body {
     font-weight: bold;
 }
 .question_box {
-    border-radius: 26px;
+    /* border-radius: 26px; */
     background-color: white;
     margin: 0 auto;
     padding: 3em;
+}
+.first_question {
+    border-radius: 26px 26px 0 0;
+}
+.last_question {
+    border-radius: 0 0 26px 26px;
+}
+.question_box img {
+    z-index: 2;
 }
 .question_box p {
     margin: 20px auto;

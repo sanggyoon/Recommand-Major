@@ -23,7 +23,7 @@ function LoginPage() {
             <span id="login_text1">전공 추천</span>
             <span id="login_text2">본인의 학번을 입력하세요!</span>
           </div>
-          <form action="/research">
+          <form action="/research" method="POST">
             {/* input과 button 태그 수정 */}
             <input type="text" id="userID" name="userID" placeholder="ex)A123456" />
             <div className="login_icon"></div>

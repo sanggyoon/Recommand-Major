@@ -29,7 +29,7 @@ function YourComponent() {
           <p id="recommand_title">기업</p>
         </div>
         <div className="again_BT">
-          <a href="">다시하기</a>
+          <a href="/login" method="POST">다시하기</a>
         </div>
       </div>
     </>
