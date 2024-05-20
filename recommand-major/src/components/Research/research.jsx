@@ -3,7 +3,7 @@ import './research.css';
 
 function ResearchComponent() {
     return (
-        <>
+        <div className='Research'>
             <div className="Research_BG"></div>
             <div className="research_empty_box"></div>
             <div className="research_contents">
@@ -14,6 +14,7 @@ function ResearchComponent() {
                     <div className="question_box">
                         <p>당신은 쿠키런 점수 1억점 이상인가요?</p>
                         <div className="question_radio">
+                            <div className='agree'><span>동의</span></div>
                             <label htmlFor="q1-a1">
                                 <input type="radio" id="q1-a1" name="Q1" value="1" />
                                 <span className="radio_btn radioStyle-1"></span>
@@ -42,7 +43,9 @@ function ResearchComponent() {
                                 <input type="radio" id="q1-a7" name="Q1" value="7" />
                                 <span className="radio_btn radioStyle-7"></span>
                             </label>
+                            <div className='disagree'><span>비동의</span></div>
                         </div>
+            
                     </div>
                     <div className="question_box">
                         <p>당신은 쿠키런 점수 1억점 이상인가요?</p>
@@ -82,7 +85,7 @@ function ResearchComponent() {
                     </div>
                 </form>
             </div>
-        </>
+        </div>
     );
 }
 

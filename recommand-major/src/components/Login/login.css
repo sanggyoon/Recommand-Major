@@ -10,7 +10,7 @@ body {
     width: 50vw;
     background-image: url(../image/login_left_BG.png);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
 }
 
 .arrow {
