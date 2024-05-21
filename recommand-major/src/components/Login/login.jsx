@@ -12,7 +12,7 @@ function LoginPage() {
       <div className="Left_BG">
         <div className="arrow">
           {/* src 속성 변경 */}
-          <img src={loginArrow} alt="" />
+          <img src={loginArrow} alt="login" />
         </div>
         <div className="slide"></div>
       </div>

@@ -8,7 +8,7 @@ body {
 .Left_BG {
     height: 100vh;
     width: 50vw;
-    background-image: url(../image/login_left_BG.png);
+    background-image: url(../image/login_left_BG.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -49,12 +49,11 @@ body {
 #userID {
     font-family: "GmarketSansTTFMed";
     color: #5E6D96;
-    
 }
 
 #userID::placeholder{
     color: #AAB0C1;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 .login_title #login_text1{
@@ -66,7 +65,9 @@ body {
 .login_title #login_text2 {
     font-size: 1em;
     display: block;
-    color: #A8AEBD
+    color: #A8AEBD;
+    font-family: "NanumSquareBold";
+    
 }
 
 .login_box form {
@@ -130,6 +131,7 @@ body {
     display: flex;
     justify-content: flex-end;
     margin-right: 10%;
+    z-index: auto;
 }
 
 @font-face{

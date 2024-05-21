@@ -37,7 +37,7 @@ body {
     padding: 0 auto;
     margin: 1em;
     font-family: "NanumSquareExtra";
-    color: #8bacff;
+    color: #F7DAAE;
     font-size: 1.2em;
 
 }
@@ -46,19 +46,33 @@ body {
     padding: 0 auto;
     margin: 1em;
     font-family: "NanumSquareExtra";
-    color: #CAB1D6;
+    color:  #8bacff;
     font-size: 1.2em;
 
 }
 
+.Entire_research_box{
+    box-shadow: 2px 2px 22.7px #585858;
+    border-radius: 26px 26px 26px 26px;
+}
+
 .question_box {
-    border-radius: 26px;
     background-color: #f6f6f6;
     margin: 0 auto;
     padding: 5em;
     font-family: "NanumSquareExtra";
 }
 
+
+
+.first_question {
+    border-radius: 26px 26px 0 0;
+}
+
+.last_question {
+    border-radius: 0 0 26px 26px;
+    padding: 5em 5em 3em;
+}
 .question_box p {
     margin: 20px auto;
     text-align: center;
@@ -83,7 +97,7 @@ body {
     margin: 0 10px;
 }
 .radioStyle-1, .radioStyle-2, .radioStyle-3 {
-    border-color: #92AFF8;
+    border-color: #8bacff;
     border-width: var(--BorderWidth); 
 }
 .radioStyle-4 {
@@ -93,7 +107,7 @@ body {
     border-width: var(--BorderWidth); 
 }
 .radioStyle-5, .radioStyle-6, .radioStyle-7 {
-    border-color: #CAB1D6;
+    border-color:  #F7DAAE;
     border-width: var(--BorderWidth); 
 }
 .radioStyle-1, .radioStyle-7 {
@@ -115,22 +129,23 @@ body {
     background-color: #D5D5D5;
 }
 .question_radio input[type="radio"]:checked + .radioStyle-5, .question_radio input[type="radio"]:checked + .radioStyle-6, .question_radio input[type="radio"]:checked + .radioStyle-7 {
-    background-color: #CAB1D6;
+    background-color: #F7DAAE;
 }
 .summit_BT_box {
-    margin: 2em;
+    margin: 6em 2em 2em;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .summit_BT {
     font-size: 1.5em;
-    font-weight: bold;
+    
     padding: 0.6em 4em;
     color: #97ACE1;
     border-radius: 11px;
-    border: 4px solid #97ACE1;
+    border: 0.15em solid #97ACE1;
     background-color: rgba(0, 0, 0, 0);
+    font-family: "NanumSquareBold";
 }
 .summit_BT:hover {
     background-color: #97ACE1;
@@ -140,4 +155,9 @@ body {
 @font-face{
     font-family: "NanumSquareExtra";
     src: url("../font/NanumSquareOTF/NanumSquareOTF_0.otf");
+}
+
+@font-face{
+    font-family: "NanumSquareBold";
+    src: url("../font/NanumSquareOTF/NanumSquareOTF.otf");
 }
