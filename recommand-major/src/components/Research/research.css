@@ -1,8 +1,9 @@
 :root {
-    --bigestRadioSize: 4em;
-    --middleRadioSize: 3.3em;
-    --smallRadioSize: 2.6em;
-    --tinyRadioSize: 2em;
+    --bigestRadioSize: 2.8vw;
+    --middleRadioSize: 2.3vw;
+    --smallRadioSize: 1.8vw;
+    --tinyRadioSize: 1.4vw;
+    --BorderWidth: 0.2vw; /* 뷰포트 폭의 0.1%로 설정 */
 }
 body {
     margin: 0;
@@ -28,17 +29,53 @@ body {
 .FindOutYourMajor {
     margin-left: 26px;
     color: white;    
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: bold;
 }
-.question_box {
-    /* border-radius: 26px; */
-    background-color: white;
-    margin: 0 auto;
-    padding: 3em;
+
+.agree{
+    padding: 0 auto;
+    margin: 1em;
+    font-family: "NanumSquareExtra";
+    color: #f1c973;
+    font-size: 1.2em;
+
 }
+
+.disagree{
+    padding: 0 auto;
+    margin: 1em;
+    font-family: "NanumSquareExtra";
+    color:  #8bacff;
+    font-size: 1.2em;
+
+}
+
+.Entire_research_box{
+    box-shadow: 2px 2px 22.7px #585858;
+    border-radius: 26px 26px 26px 26px;
+}
+
+.question_box {
+    background-color: #f6f6f6;
+    margin: 0 auto;
+    padding: 5em;
+    font-family: "NanumSquareExtra";
+}
+
 .first_question {
     border-radius: 26px 26px 0 0;
+}
+
+.first_question {
+    border-radius: 26px 26px 0 0;
+}
+.question_box:nth-last-child(1) {
+    border-radius: 0 0 26px 26px;
+}
+.last_question {
+    border-radius: 0 0 26px 26px;
+    padding: 5em 5em 3em;
 }
 .last_question {
     border-radius: 0 0 26px 26px;
@@ -50,7 +87,7 @@ body {
     margin: 20px auto;
     text-align: center;
     color: #747474;
-    font-size: 2em;
+    font-size: 1.7em;
     font-weight: bold;
 }
 .question_radio {
@@ -58,6 +95,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 .question_radio input[type="radio"] {
     display: none;
@@ -69,15 +107,18 @@ body {
     margin: 0 10px;
 }
 .radioStyle-1, .radioStyle-2, .radioStyle-3 {
-    border-color: #92AFF8;
+    border-color: #8bacff;
+    border-width: var(--BorderWidth); 
 }
 .radioStyle-4 {
     height: var(--tinyRadioSize);
     width: var(--tinyRadioSize);
     border-color: #D5D5D5;
+    border-width: var(--BorderWidth); 
 }
 .radioStyle-5, .radioStyle-6, .radioStyle-7 {
-    border-color: #CAB1D6;
+    border-color:  #f1c973;
+    border-width: var(--BorderWidth); 
 }
 .radioStyle-1, .radioStyle-7 {
     height: var(--bigestRadioSize);
@@ -98,24 +139,35 @@ body {
     background-color: #D5D5D5;
 }
 .question_radio input[type="radio"]:checked + .radioStyle-5, .question_radio input[type="radio"]:checked + .radioStyle-6, .question_radio input[type="radio"]:checked + .radioStyle-7 {
-    background-color: #CAB1D6;
+    background-color: #f1c973;
 }
 .summit_BT_box {
-    margin: 2em;
+    margin: 6em 2em 2em;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .summit_BT {
     font-size: 1.5em;
-    font-weight: bold;
+    
     padding: 0.6em 4em;
     color: #97ACE1;
     border-radius: 11px;
-    border: 2px solid #97ACE1;
+    border: 0.15em solid #97ACE1;
     background-color: rgba(0, 0, 0, 0);
+    font-family: "NanumSquareBold";
 }
 .summit_BT:hover {
     background-color: #97ACE1;
     color: white;
+}
+
+@font-face{
+    font-family: "NanumSquareExtra";
+    src: url("../font/NanumSquareOTF/NanumSquareOTF_0.otf");
+}
+
+@font-face{
+    font-family: "NanumSquareBold";
+    src: url("../font/NanumSquareOTF/NanumSquareOTF.otf");
 }

@@ -86,25 +86,27 @@ function ResearchComponent() {
           <span>Find Out Your Major.</span>
         </div>
         <form onSubmit={handleSubmit}>
-          {questions.map((question, index) => (
-            <div className={`question_box ${index === 0 ? 'first_question' : ''}`} key={index}>
-              <p>{question}</p>
-              <div className="question_radio">
-                {[...Array(7)].map((_, optionIndex) => (
-                  <label key={optionIndex}>
-                    <input
-                      type="radio"
-                      id={`q${index + 1}-a${optionIndex + 1}`}
-                      name={`Q${index + 1}`}
-                      value={optionIndex + 1}
-                      onChange={(e) => handleChange(index, e.target.value)}
-                    />
-                    <span className={`radio_btn radioStyle-${optionIndex + 1}`}></span>
-                  </label>
-                ))}
-              </div>
+        {questions.map((question, index) => (
+          <div className={`question_box ${index === 0 ? 'first_question' : ''} ${index === questions.length - 1 ? 'last_question' : ''}`} key={index}>
+            <p>{question}</p>
+            <div className="question_radio">
+              <div className='disagree'><span>비동의</span></div>
+              {[...Array(7)].map((_, optionIndex) => (
+                <label key={optionIndex}>
+                  <input
+                    type="radio"
+                    id={`q${index + 1}-a${optionIndex + 1}`}
+                    name={`Q${index + 1}`}
+                    value={optionIndex + 1}
+                    onChange={(e) => handleChange(index, e.target.value)}
+                  />
+                  <span className={`radio_btn radioStyle-${optionIndex + 1}`}></span>
+                </label>
+              ))}
+              <div className='agree'><span>동의</span></div>
             </div>
-          ))}
+          </div>
+        ))}
           <div className="summit_BT_box">
             <button className="summit_BT" type="submit">결과보기</button>
           </div>
