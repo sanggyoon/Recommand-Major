@@ -131,7 +131,7 @@ body {
     display: flex;
     justify-content: flex-end;
     margin-right: 10%;
-    z-index: auto;
+    z-index: 3;
 }
 
 @font-face{
