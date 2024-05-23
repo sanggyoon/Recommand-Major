@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './result.css';
 
 function YourComponent() {
+  const [hoveredLecture, setHoveredLecture] = useState(null);
+
+  const handleMouseEnter = (index) => {
+    setHoveredLecture(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredLecture(null);
+  };
+
   return (
     <>
       <div className="Result_BG"></div>
@@ -24,9 +34,12 @@ function YourComponent() {
           <div className="lectureNames">
 
             {/* 반복 시작 */}
-            <div className="lectureName lectureNameCount-1">
-              인공지능
-              <div className="result_arrow"></div>
+            <div 
+              className="lectureName lectureNameCount-1"
+              onMouseEnter={() => handleMouseEnter(1)}
+              onMouseLeave={handleMouseLeave}
+            >
+              {/* 여기는 lectures테이블의 lectureName */}
             </div>
             {/* 반복  끝 */}
 
@@ -34,8 +47,8 @@ function YourComponent() {
           <div className="lectureExplains">
 
             {/* 반복 시작 */}
-            <div className="lectureExplain lectureExplainCount-1">
-            현대 인공지능의 기초가 되는 기술(그래프 검색, 최적화, 지식 표현 및 추론, 강화학습, 자연어 처리)과 알고리즘을 실습 프로젝트를 통해 학습한다.
+            <div className={`lectureExplain lectureExplainCount-1 ${hoveredLecture === 1 ? 'visible' : 'hidden'}`}>
+              {/* 여기는 lectures테이블의 lectureExplain */}
             </div>
             {/* 반복 끝 */}
 
@@ -47,10 +60,10 @@ function YourComponent() {
           {/* 반복 시작 */}
           <div className="certificationBox certificationBoxCount-1">
             <div className="certificationName certificationNameCount-1">
-              AICE
+              {/* 여기는 certifications테이블의 certificationName */}
             </div>
             <div className="certificationExplain certificationExplainCount-1">
-              KT가 개발하여 한국경제신문과 함께 주관하는 인공지능 능력시험
+              {/* 여기는 certifications테이블의 certificationExplain */}
             </div>
           </div>
           {/* 반복 끝 */}
