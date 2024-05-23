@@ -61,7 +61,7 @@ function LoginPage() {
             {/* id 속성 변경 */}
             <span id="login_text1">소프트웨어융합학과</span>
             <span id="login_text1">전공 추천</span>
-            <span id="login_text2">본인의 학번을 입력하세요!</span>
+            <div id="login_text2"><span>본인의 학번을 입력하세요!</span></div>
           </div>
           <form onSubmit={handleSubmit}>
             {/* input과 button 태그 수정 */}

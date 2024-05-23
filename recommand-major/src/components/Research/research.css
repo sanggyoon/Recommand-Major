@@ -75,7 +75,7 @@ body {
 }
 .last_question {
     border-radius: 0 0 26px 26px;
-    padding: 5em 5em 3em;
+    padding: 5em;
 }
 .last_question {
     border-radius: 0 0 26px 26px;
@@ -142,14 +142,13 @@ body {
     background-color: #f1c973;
 }
 .summit_BT_box {
-    margin: 6em 2em 2em;
+    margin: 6em;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .summit_BT {
     font-size: 1.5em;
-    
     padding: 0.6em 4em;
     color: #97ACE1;
     border-radius: 11px;
