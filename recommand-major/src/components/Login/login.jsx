@@ -31,7 +31,7 @@ function LoginPage() {
         const data = await response.json();
         if (response.ok) {
           console.log(data.message);
-          navigate('/research');
+          navigate('/research',{state: {studentID}});
         } else {
           alert('학번 저장 중 오류 발생');
         }

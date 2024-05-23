@@ -63,50 +63,74 @@ function ResearchComponent() {
     return results;
   };
 
- const handleSubmit = (e) => {
-    e.preventDefault();
-    // 모든 질문에 대한 응답이 있는지 확인
-    const isAllAnswered = values.every(value => value !== 0);
+// research.jsx
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  // 모든 질문에 대한 응답이 있는지 확인
+  const isAllAnswered = values.every(value => value !== 0);
+
+  if (!isAllAnswered) {
+    // 응답하지 않은 질문이 있을 경우 경고 메시지 표시
+    alert('대답하지 못한 질문이 있습니다.');
+    return; // 함수 실행을 여기서 중단하여 페이지 이동 방지
+  }
+  const calculatedResults = calculateResults();
   
-    if (!isAllAnswered) {
-      // 응답하지 않은 질문이 있을 경우 경고 메시지 표시
-      alert('대답하지 못한 질문이 있습니다.');
-      return; // 함수 실행을 여기서 중단하여 페이지 이동 방지
-    }
-    const calculatedResults = calculateResults();
-    
-    const WWWW = calculatedResults.wwww.toFixed(2);
-    const PHON = calculatedResults.phon.toFixed(2);
-    const IDPW = calculatedResults.idpw.toFixed(2);
-    const BACK = calculatedResults.back.toFixed(2);
-    const DATA = calculatedResults.data.toFixed(2);
-    const AIAI = calculatedResults.aiai.toFixed(2);
-    const IBDD = calculatedResults.ibdd.toFixed(2);
-    const ELTN = calculatedResults.eltn.toFixed(2);
+  const WWWW = calculatedResults.wwww.toFixed(2);
+  const PHON = calculatedResults.phon.toFixed(2);
+  const IDPW = calculatedResults.idpw.toFixed(2);
+  const BACK = calculatedResults.back.toFixed(2);
+  const DATA = calculatedResults.data.toFixed(2);
+  const AIAI = calculatedResults.aiai.toFixed(2);
+  const IBDD = calculatedResults.ibdd.toFixed(2);
+  const ELTN = calculatedResults.eltn.toFixed(2);
 
-    console.log('wwww:', WWWW);
-    console.log('phon:', PHON);
-    console.log('idpw:', IDPW);
-    console.log('back:', BACK);
-    console.log('data:', DATA);
-    console.log('aiai:', AIAI);
-    console.log('ibdd:', IBDD);
-    console.log('eltn:', ELTN);
+  console.log('wwww:', WWWW);
+  console.log('phon:', PHON);
+  console.log('idpw:', IDPW);
+  console.log('back:', BACK);
+  console.log('data:', DATA);
+  console.log('aiai:', AIAI);
+  console.log('ibdd:', IBDD);
+  console.log('eltn:', ELTN);
 
-    // 변수와 값을 객체로 저장
-    const results = {BACK, AIAI, DATA, WWWW, PHON, IDPW, IBDD, ELTN};
-    
-    // 우선순위에 따라 정렬하기 위한 배열
-    const priority = ['BACK', 'AIAI', 'DATA', 'WWWW', 'PHON', 'IDPW', 'IBDD', 'ELTN'];
-    
-    // 가장 큰 값을 찾기 위해 우선순위 배열을 기준으로 정렬
-    const sortedResults = priority
-      .map(key => ({ key, value: results[key] }))
-      .sort((a, b) => b.value - a.value || priority.indexOf(a.key) - priority.indexOf(b.key));
-    
-    // 가장 큰 값 출력
-    console.log(`${sortedResults[0].key}: ${sortedResults[0].value}`);
-    navigate('/result');
+  // 변수와 값을 객체로 저장
+  const results = { BACK, AIAI, DATA, WWWW, PHON, IDPW, IBDD, ELTN };
+  
+  // 우선순위에 따라 정렬하기 위한 배열
+  const priority = ['BACK', 'AIAI', 'DATA', 'WWWW', 'PHON', 'IDPW', 'IBDD', 'ELTN'];
+  
+  // 가장 큰 값을 찾기 위해 우선순위 배열을 기준으로 정렬
+  const sortedResults = priority
+    .map(key => ({ key, value: results[key] }))
+    .sort((a, b) => b.value - a.value || priority.indexOf(a.key) - priority.indexOf(b.key));
+  
+  // 가장 큰 값 출력
+  console.log(`${sortedResults[0].key}: ${sortedResults[0].value}`);
+  const maxresult = sortedResults[0].key;
+  // 가장 큰 값을 서버로 전송
+  fetch('/api/saveResult', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ result: maxresult }),
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Result saved:', data);
+      // 결과 저장 후 페이지 이동
+      navigate('/result');
+    })
+    .catch(error => {
+      console.error('There was a problem with your fetch operation:', error);
+    });
 }
 
   return (

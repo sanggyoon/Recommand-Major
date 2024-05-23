@@ -37,15 +37,25 @@ app.post('/api/login', (req, res) => {
     res.send({ massage: '학번 저장!', id: result.insertId });
   });
 });
+// server.js
 
-app.post('/api/research', (req, res) => {
-  const { studentID } = req.body;
-    const query = 'INSERT INTO users (studentID, created_at) VALUES (?, ?)';
-  db.query(query, [studentID, timestamp], (err, result) => {
-    if (err) console.log('학번 저장 중 오류 발생');
-    res.send({ massage: '학번 저장!', id: result.insertId });
+app.post('/api/saveResult', (req, res) => {
+  const { result, state } = req.body;
+
+  console.log('받은 데이터 :', result, state)
+  // 결과를 users 테이블에 저장하는 쿼리 실행
+  const query = 'UPDATE users SET results = ? WHERE studentID = ?';
+  db.query(query, [result, state], (err, result) => {
+    if (err) {
+      console.error('Error saving result:', err);
+      res.status(500).json({ error: 'Error saving result' });
+    } else {
+      console.log('Result saved in database');
+      res.json({ success: true });
+    }
   });
 });
+
 
 // 모든 GET 요청을 처리하고, React 앱을 반환
 app.get('*', (req, res) => {
