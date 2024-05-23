@@ -12,13 +12,16 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
+
 .arrow {
     width: 100%;
 }
+
 .arrow img {
     width: 30%;
     margin-left: 2em;
 }
+
 .Right_BG {
     height: 100vh;
     width: 50vw;
@@ -27,10 +30,12 @@ body {
     background-size: 100% 100%;
     position: relative;
 }
+
 .login_empty_box {
     width: 100%;
     height: 15%;
 }
+
 .login_box {
     width: 60%;
     margin: 0 auto;
@@ -38,15 +43,32 @@ body {
     border-radius: 26px;
     padding: 3em; 
     position: relative;
+    box-shadow: 2px 2px 22.7px  #00000040;
 }
+
+#userID {
+    font-family: "GmarketSansTTFMed";
+    color: #5E6D96;
+    
+}
+
+#userID::placeholder{
+    color: #AAB0C1;
+    font-size: 1em;
+}
+
 .login_title #login_text1{
     font-size: 2em;
     display: block;
+    color: #5E6D96;
 }
+
 .login_title #login_text2 {
     font-size: 1em;
     display: block;
+    color: #A8AEBD
 }
+
 .login_box form {
     margin: 0 auto;
     position: relative;
@@ -83,6 +105,7 @@ body {
     border-radius: 11px;
     padding: 1em;
     color: #536CAB;
+    font-family: "NanumSquareExtra";
     font-size: 1.5em;
 }
 .login_box form button:hover {
@@ -98,4 +121,28 @@ body {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.loginpage{
+    font-family : "NanumSquareExtra";
+}
+.character_box {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10%;
+}
+
+@font-face{
+    font-family: "NanumSquareExtra";
+    src: url("../font/NanumSquareOTF/NanumSquareOTF_0.otf");
+}
+
+@font-face{
+    font-family: "NanumSquareBold";
+    src: url("../font/NanumSquareOTF/NanumSquareOTF.otf");
+}
+
+@font-face{
+    font-family: "GmarketSansTTFMed";
+    src: url("../font/GamrketSans/GmarketSansTTFMedium.ttf");
 }

@@ -4,6 +4,7 @@ import './login.css'; // CSS import 방식 변경
 import loginArrow from '../image/login_arrow.png'; // 이미지 import 방식 변경
 import loginTail from '../image/login_tail.png';
 import loginLogo from '../image/login_logo.png';
+import Character from "./Character";
 
 function LoginPage() {
   const [studentID, setStudentID] = useState('');
@@ -14,15 +15,6 @@ function LoginPage() {
     const regex = /^[A-Za-z]\d{6}$/;
     return regex.test(id);
   };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (validateStudentID(studentID)) {
-  //     navigate('/research');
-  //   } else {
-  //     alert('학번 형식이 올바르지 않습니다.');
-  //   }
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,7 +30,7 @@ function LoginPage() {
 
         const data = await response.json();
         if (response.ok) {
-          console.log(data.message); // 서버에서 온 메시지 출력
+          console.log(data.message);
           navigate('/research');
         } else {
           alert('학번 저장 중 오류 발생');
@@ -53,6 +45,7 @@ function LoginPage() {
   };
 
   return (
+  <div className='loginpage'>
     <div className="BG">
       <div className="Left_BG">
         <div className="arrow">
@@ -83,15 +76,16 @@ function LoginPage() {
             <div className="login_icon"></div>
             <button type="submit" id="loginBT" name="loginBT">확인</button>
           </form>
-          {/* src 속성 변경 */}
           <img src={loginTail} alt="" />
         </div>
-        <div className="charater_box"></div>
+        <div className="character_box">
+         <Character />
+        </div>
         <div className="logo_box">
-          {/* src 속성 변경 */}
           <img src={loginLogo} alt="" />
         </div>
       </div>
+    </div>
     </div>
   );
 }

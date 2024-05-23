@@ -805,7 +805,7 @@ function ResearchComponent() {
                         </div>
                     </div>
 
-                    <div className="summit_BT_box">
+                    <div className="summit_BT_box" action="/result">
                         <button className="summit_BT">결과보기</button>
                     </div>
                 </form>
