@@ -37,7 +37,7 @@ body {
     padding: 0 auto;
     margin: 1em;
     font-family: "NanumSquareExtra";
-    color: #f1c973;
+    color: #FFABAB;
     font-size: 1.2em;
 
 }
@@ -114,7 +114,7 @@ body {
     border-width: var(--BorderWidth); 
 }
 .radioStyle-5, .radioStyle-6, .radioStyle-7 {
-    border-color:  #f1c973;
+    border-color:  #FFABAB;
     border-width: var(--BorderWidth); 
 }
 .radioStyle-1, .radioStyle-7 {
@@ -136,7 +136,7 @@ body {
     background-color: #D5D5D5;
 }
 .question_radio input[type="radio"]:checked + .radioStyle-5, .question_radio input[type="radio"]:checked + .radioStyle-6, .question_radio input[type="radio"]:checked + .radioStyle-7 {
-    background-color: #f1c973;
+    background-color: #FFABAB;
 }
 .summit_BT_box {
     margin: 6em;

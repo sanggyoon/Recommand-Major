@@ -10,7 +10,7 @@ function YourComponent() {
         <div className="result_title">
           <div className="rectangle"></div>
           <div className="YourMajorIs">
-            <span>나와 어울리는 컴퓨터 전공은?</span>
+            <span>나와 어울리는 컴퓨터 전공 유형은</span>
           </div>
           <div className="result_type_img">
             <img src="" alt="" />

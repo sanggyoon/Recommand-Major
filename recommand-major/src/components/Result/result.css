@@ -3,7 +3,7 @@ body {
     box-sizing: border-box;
 }
 .Result_BG {
-    height: 100vh;
+    height: 120vh;
     width: 100vw;
     position: fixed;
     background-image: url(../image/result_BG.png);
@@ -15,11 +15,13 @@ body {
     height: 10vh;
 }
 .Result_content_main {
-    width: 60%;
+    width: 50%;
     background-color: #EFEFEF;
-    border-radius: 41px;
+    border-radius: 39px;
     margin: 0 auto;
     padding: 2em;
+    padding-bottom: 5em;
+    margin-bottom:-4em;
     box-sizing: border-box;
 }
 .result_title {
@@ -38,30 +40,36 @@ body {
     font-weight: bold;
     color: #7F7F7F;
     margin: 1em 0 0 0;
+    font-family: "NanumSquareExtra";
 }
 .Result_content_sub {   
-    width: 60%;
+    width: 50%;
     background-color: #FFFFFF;
     border-radius: 41px;
     margin: 0 auto;
-    padding: 2em 3em;
+    padding: 2em 5em;
     box-sizing: border-box;
+    box-shadow: 0px 0px 21px rgba(87, 87, 87, 0.25);
 }
 #recommand_title {
     font-size: 2em;
     font-weight: bolder;
-    border-left: 4px solid black;
+    border-left: 5px solid rgb(88, 88, 88);
     padding-left: 1em;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
+    font-family: "GmarketSansTTFBold";
+    color:#5B5B5B;
 }
 .lectureNames {
     display: flex;
     justify-content: space-between;
+    font-family: "NanumSquareExtra";
+    color: #ffffff;
 }
 .lectureName {
     font-size: 1.5em;
-    padding: 0.5em 1em;
+    padding: 0.5em 1.6em;
     border: none;
     border-radius: 113px;
     position: relative;
@@ -93,9 +101,11 @@ body {
     background-size: 100% 100%;
     display: none
 }
+
 .lectureExplains {
     margin-top: 40px;
 }
+
 .lectureExplain {
     width: 100%;
     background-color: #F1F1F1;
@@ -111,11 +121,12 @@ body {
 }
 .certificationBox {
     font-size: 1.5em;
-    padding: 0.5em 1em;
+    padding: 1em;
     border: none;
     border-radius: 34px;
     position: relative;
     margin-bottom: 1.5em;
+
 }
 .certificationBoxCount-1 {
     background-color: #FFD7C5;
@@ -128,23 +139,60 @@ body {
 }
 .certificationName {
     font-weight: bold;
+    font-family: "GmarketSansTTFBold";
+    color: #525252;
+}
+.certificationExplain{
+    font-family:"NanumSquareOTFR";
+    color: #525252;
+    font-size: 0.9em;
+
 }
 .again_BT {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: "NanumSquareBold";
+    padding: 0.5em;
 }
 .again_BT a {
     box-sizing: border-box;
-    border: 2px solid #97ACE1;
+    border: 0.15em solid #97ACE1;
     border-radius: 11px;
     color: #97ACE1;
     padding: 0.6em 4em;
     font-size: 1.5em;
     font-weight: bold;
+    margin: 0.2;
     text-decoration: none;
 }
 .again_BT a:hover {
     color: white;
     background-color: #97ACE1;
+}
+
+
+@font-face{
+    font-family: "NanumSquareExtra";
+    src: url("../font/NanumSquareOTF/NanumSquareOTF_0.otf");
+}
+
+@font-face{
+    font-family: "NanumSquareBold";
+    src: url("../font/NanumSquareOTF/NanumSquareOTF.otf");
+}
+
+@font-face{
+    font-family:"NanumSquareOTFR";
+    src: url("../font/NanumSquareOTF/NanumSquareOTF_acR.otf");
+}
+
+@font-face{
+    font-family: "GmarketSansTTFMed";
+    src: url("../font/GamrketSans/GmarketSansTTFMedium.ttf");
+}
+
+@font-face{
+    font-family: "GmarketSansTTFBold";
+    src: url("../font/GamrketSans/GmarketSansTTFBold.ttf");
 }
