@@ -15,15 +15,6 @@ function LoginPage() {
     return regex.test(id);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (validateStudentID(studentID)) {
-  //     navigate('/research');
-  //   } else {
-  //     alert('학번 형식이 올바르지 않습니다.');
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateStudentID(studentID)) {
