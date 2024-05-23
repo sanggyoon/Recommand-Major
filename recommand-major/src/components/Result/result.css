@@ -66,19 +66,19 @@ body {
     border-radius: 113px;
     position: relative;
 }
-.lectureNameCount-1 {
+.lectureNameCount-1, .certificationBoxCount-1 {
     background-color: #FFD0D0;
 }
-.lectureNameCount-2 {
+.lectureNameCount-2, .certificationBoxCount-2 {
     background-color: #FFD9BD;
 }
-.lectureNameCount-3 {
+.lectureNameCount-3, .certificationBoxCount-3 {
     background-color: #CBE2C8;
 }
-.lectureNameCount-4 {
+.lectureNameCount-4, .certificationBoxCount-4 {
     background-color: #E2CDF3;
 }
-.lectureNameCount-5 {
+.lectureNameCount-5, .certificationBoxCount-5 {
     background-color: #C3D2F9;
 }
 .lectureExplains {
@@ -104,15 +104,6 @@ body {
     border-radius: 34px;
     position: relative;
     margin-bottom: 1.5em;
-}
-.certificationBoxCount-1 {
-    background-color: #FFD7C5;
-}
-.certificationBoxCount-2 {
-    background-color: #C5E0FF;
-}
-.certificationBoxCount-3 {
-    background-color: #B5DDB7;
 }
 .certificationName {
     font-weight: bold;
