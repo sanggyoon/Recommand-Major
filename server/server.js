@@ -10,7 +10,7 @@ const port = process.env.PORT || 5000;
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '0000',
+  password: '1234',
   database: 'jochigyeol'
 });
 // 데이터베이스 연결
@@ -32,6 +32,15 @@ app.post('/api/login', (req, res) => {
   const timestamp = new Date().toISOString().slice(0,19).replace('T', ' ');
   const query = 'INSERT INTO users (studentID, created_at) VALUES (?, ?)';
 
+  db.query(query, [studentID, timestamp], (err, result) => {
+    if (err) console.log('학번 저장 중 오류 발생');
+    res.send({ massage: '학번 저장!', id: result.insertId });
+  });
+});
+
+app.post('/api/research', (req, res) => {
+  const { studentID } = req.body;
+    const query = 'INSERT INTO users (studentID, created_at) VALUES (?, ?)';
   db.query(query, [studentID, timestamp], (err, result) => {
     if (err) console.log('학번 저장 중 오류 발생');
     res.send({ massage: '학번 저장!', id: result.insertId });
