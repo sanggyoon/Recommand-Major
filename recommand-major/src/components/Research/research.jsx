@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './research.css';
 
 function ResearchComponent() {
@@ -50,7 +51,6 @@ function ResearchComponent() {
       ibdd: 0,
       eltn: 0
     };
-
     results.wwww = values[0] * 0.7 + values[8] * 1.3 + values[16] * 1.7;
     results.phon = values[1] * 0.7 + values[9] * 1.3 + values[17] * 1.7;
     results.idpw = values[2] * 0.7 + values[10] * 1.3 + values[18] * 1.7;
@@ -59,23 +59,30 @@ function ResearchComponent() {
     results.aiai = values[5] * 0.7 + values[13] * 1.3 + values[21] * 1.7;
     results.ibdd = values[6] * 0.7 + values[14] * 1.3 + values[22] * 1.7;
     results.eltn = values[7] * 0.7 + values[15] * 1.3 + values[23] * 1.7;
-
     return results;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const calculatedResults = calculateResults();
-    console.log('wwww:', calculatedResults.wwww.toFixed(2));
-    console.log('phon:', calculatedResults.phon.toFixed(2));
-    console.log('idpw:', calculatedResults.idpw.toFixed(2));
-    console.log('back:', calculatedResults.back.toFixed(2));
-    console.log('data:', calculatedResults.data.toFixed(2));
-    console.log('aiai:', calculatedResults.aiai.toFixed(2));
-    console.log('ibdd:', calculatedResults.ibdd.toFixed(2));
-    console.log('eltn:', calculatedResults.eltn.toFixed(2));
+    
+    // 결과를 배열로 변환하고, 가장 높은 값을 찾습니다.
+    const resultsArray = Object.entries(calculatedResults).map(([key, value]) => ({ key, value }));
+    const highestValue = Math.max(...resultsArray.map(result => result.value));
+  
+    // 가장 높은 값을 가지는 요소들을 필터링합니다.
+    const highestResults = resultsArray.filter(result => result.value === highestValue);
+  
+    // 주어진 우선순위에 따라 정렬합니다.
+    const priority = ['back', 'aiai', 'data', 'wwww', 'phon', 'eltn', 'idpw', 'ibdd'];
+    highestResults.sort((a, b) => priority.indexOf(a.key) - priority.indexOf(b.key));
+  
+    // 가장 높은 우선순위를 가진 결과를 출력합니다.
+    console.log(`${highestResults[0].key}:`, highestResults[0].value.toFixed(2));
+  
     navigate('/result');
   };
+  
 
   return (
     <>

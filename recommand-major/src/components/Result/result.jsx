@@ -1,17 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'; // axios를 사용하여 API 호출
 import './result.css';
 
 function YourComponent() {
-  const [hoveredLecture, setHoveredLecture] = useState(null);
+  const [result, setResult] = useState('');
+  const [lectures, setLectures] = useState([]);
+  const [certifications, setCertifications] = useState([]);
 
-  const handleMouseEnter = (index) => {
-    setHoveredLecture(index);
-  };
+  useEffect(() => {
+    // 사용자의 결과를 가져오는 함수
+    const fetchResult = async () => {
+      try {
+        const response = await axios.get('/api/getUserResult');
+        setResult(response.data.result);
+      } catch (error) {
+        console.error('결과를 가져오는 중 오류 발생:', error);
+      }
+    };
 
-  const handleMouseLeave = () => {
-    setHoveredLecture(null);
-  };
+    // 사용자의 결과에 해당하는 강의 목록 및 자격증 목록을 가져오는 함수
+    const fetchRecommendations = async () => {
+      try {
+        const response = await axios.get('/api/getRecommendations');
+        setLectures(response.data.lectures);
+        setCertifications(response.data.certifications);
+      } catch (error) {
+        console.error('추천 정보를 가져오는 중 오류 발생:', error);
+      }
+    };
 
+    fetchResult();
+    fetchRecommendations();
+  }, []);
   return (
     <>
       <div className="Result_BG"></div>
@@ -33,40 +53,33 @@ function YourComponent() {
           <p id="recommand_title">추천 수강 과목</p>
           <div className="lectureNames">
 
-            {/* 반복 시작 */}
-            <div 
-              className="lectureName lectureNameCount-1"
-              onMouseEnter={() => handleMouseEnter(1)}
-              onMouseLeave={handleMouseLeave}
-            >
-              {/* 여기는 lectures테이블의 lectureName */}
-            </div>
-            {/* 반복  끝 */}
+            {/* 수강 과목 출력 */}
+            {lectures.map((lecture, index) => (
+              <div className={`lectureName lectureNameCount-${index + 1}`} key={index}>
+                {lecture.lectureName}
+              </div>
+            ))}
 
           </div>
           <div className="lectureExplains">
 
-            {/* 반복 시작 */}
-            <div className={`lectureExplain lectureExplainCount-1 ${hoveredLecture === 1 ? 'visible' : 'hidden'}`}>
-              {/* 여기는 lectures테이블의 lectureExplain */}
-            </div>
-            {/* 반복 끝 */}
+            {lectures.map((lecture, index) => (
+              <div className={`lectureExplain lectureExplainCount-${index + 1}`} key={index}>
+                {lecture.lectureExplain}
+              </div>
+            ))}
 
           </div>
         </div>
         <div className="recommand_certification">
           <p id="recommand_title">자격증</p>
 
-          {/* 반복 시작 */}
-          <div className="certificationBox certificationBoxCount-1">
-            <div className="certificationName certificationNameCount-1">
-              {/* 여기는 certifications테이블의 certificationName */}
-            </div>
-            <div className="certificationExplain certificationExplainCount-1">
-              {/* 여기는 certifications테이블의 certificationExplain */}
-            </div>
-          </div>
-          {/* 반복 끝 */}
+          {certifications.map((certification, index) => (
+              <div className={`certificationBox certificationBoxCount-${index + 1}`} key={index}>
+                <div className="certificationName certificationNameCount-1">{certification.certificationName}</div>
+                <div className="certificationExplain certificationExplainCount-1">{certification.certificationExplain}</div>
+              </div>
+            ))}
 
         </div>
         <div className="again_BT">
